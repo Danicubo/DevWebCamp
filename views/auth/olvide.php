@@ -2,7 +2,9 @@
     <h2 class="auth__heading"><?php echo $titulo; ?></h2>
     <p class="auth__texto">Restablece tu cuenta en DevWebCamp</p>
 
-    <form action="/login" class="formulario">
+    <?php require_once __DIR__ . '/../templates/alertas.php' ?>
+
+    <form method="POST" action="/olvide" class="formulario">
     <div class="formulario__campo">
         <label for="email" class="formulario__label">Email</label>
         <input 
@@ -13,7 +15,7 @@
         name="email"
         />
     </div>
-    <input type="submit" value="Iniciar Sesión" class="formulario__submit" />
+    <input type="submit" value="Restablecer Password" class="formulario__submit" />
     </form>
     <div class="acciones">
         <a href="/login" class="acciones__enlace">¿Ya tienes una cuenta? Iniciar Sesión</a>
