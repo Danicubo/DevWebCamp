@@ -27,10 +27,6 @@
         @include m.texto-fluido(2rem, 3rem);
 
     }
-
-    &__nav{
-
-    }
     &__form {
         display: flex;
         justify-content: center;
@@ -43,6 +39,7 @@
     &__grid {
         display: flex;
         flex: 1;
+        overflow-y: auto;
     }
     &__aside {
         background-color: lighten(v.$gris-oscuro, 10);
@@ -81,8 +78,36 @@
     &__contenido {
         padding: 1rem 1rem 3rem 1rem;
         width: 100%;
+        overflow-y: scroll;
         @include m.tablet {
             padding: 1rem 5rem 3rem 1rem;
         }
+    }
+
+    &__contenedor-boton {
+        @include m.tablet {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 5rem;
+        }
+    }
+    &__boton {
+        @include m.boton(v.$azul, v.$blanco);
+        text-transform: uppercase;
+
+        @include m.tablet {
+            width: auto;
+        }
+    }
+
+    &__contenedor {
+        @include m.shadow;
+        background-color: v.$blanco;
+        padding: 2rem;
+        border-radius: 1rem;
+    }
+    &__formulario {
+        @extend .dashboard__contenedor;
+        @include m.contenedor-md;
     }
 }
