@@ -2,3 +2,6 @@ node_modules
 vendor
 .DS_Store
 includes/.env
+public/image
+public/build/img/speakers
+src/img/speakers
