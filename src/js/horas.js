@@ -8,13 +8,28 @@
 
     if(horas){
 
-        const busqueda = {
-            categoria_id: '',
-            dia: '',
-        }
-        
         categoria.addEventListener('change', terminoBusqueda);
         dias.forEach(dia => dia.addEventListener('change', terminoBusqueda));
+        
+        const busqueda = {
+            categoria_id: +categoria.value || '',
+            dia: +inputHiddenDia.value || '',
+        }
+
+        if(!Object.values(busqueda).includes('')) {
+            async function iniciarApp() {
+                await buscarEventos();
+                const id = inputHiddenHora.value;
+                //Resaltar hora actual
+                const horaSeleccionada = document.querySelector(`[data-hora-id="${id}"]`);
+                horaSeleccionada.classList.remove('horas__hora--deshabilitado');
+                horaSeleccionada.classList.add('horas__hora--seleccionada');
+
+                horaSeleccionada.onclick = seleccionarHora;
+            }  
+            iniciarApp();  
+        }
+        
 
         function terminoBusqueda(e) {
             busqueda[e.target.name] = e.target.value;

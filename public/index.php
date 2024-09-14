@@ -11,6 +11,7 @@ use Controllers\EventosController;
 use Controllers\PonentesController;
 use Controllers\RegalosController;
 use Controllers\RegistradosController;
+use Controllers\PaginasController;
 
 $router = new Router();
 
@@ -58,6 +59,13 @@ $router->post('/admin/eventos/eliminar', [EventosController::class, 'eliminar'])
 //API
 $router->get('/api/eventos-horario', [APIEventos::class, 'index']);
 $router->get('/api/ponentes', [APIPonentes::class, 'index']);
+$router->get('/api/ponente', [APIPonentes::class, 'ponente']);
+
+//Área Pública 
+$router->get('/', [PaginasController::class, 'index']);
+$router->get('/devwebcamp', [PaginasController::class, 'evento']);
+$router->get('/paquetes', [PaginasController::class, 'paquetes']);
+$router->get('/workshops-conferencias', [PaginasController::class, 'conferencias']);
 
 
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
